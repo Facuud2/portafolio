@@ -1,32 +1,61 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Creepster&family=Nosifer&family=Butcherman&family=Cherry+Swash:wght@400;700&family=Cinzel+Decorative:wght@400;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@import './styles/horror-animations.css';
+
 @layer base {
   :root {
     --font-sans: 'Inter', sans-serif;
-    --font-display: 'Cinzel Decorative', 'Space Grotesk', sans-serif;
+    --font-display: 'Creepster', 'Nosifer', cursive;
     --font-mono: 'JetBrains Mono', monospace;
+    --font-horror: 'Butcherman', 'Cherry Swash', cursive;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply tracking-wide;
+    font-family: var(--font-horror);
+  }
+  
+  .horror-title {
+    font-family: var(--font-display);
+  }
+  
+  .horror-text {
+    font-family: var(--font-horror);
+  }
+  
+  .blood-text {
+    color: #ff0000 !important;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px rgba(255, 0, 0, 0.5), 0 0 30px rgba(255, 0, 0, 0.3);
+    animation: bloodPulse 2s infinite;
+  }
+  
+  @keyframes bloodPulse {
+    0%, 100% { 
+      color: #ff0000;
+      text-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px rgba(255, 0, 0, 0.5), 0 0 30px rgba(255, 0, 0, 0.3);
+    }
+    50% { 
+      color: #cc0000;
+      text-shadow: 0 0 15px rgba(255, 0, 0, 1), 0 0 30px rgba(255, 0, 0, 0.7), 0 0 45px rgba(255, 0, 0, 0.4);
+    }
   }
 
   .card {
-    @apply relative overflow-hidden bg-dark-800/50 backdrop-blur-sm rounded-xl border border-dark-700/50 shadow-lg;
+    @apply relative overflow-hidden bg-void-900/50 backdrop-blur-sm rounded-xl border border-void-700/50 shadow-lg;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
 
   .card:hover {
-    @apply transform -translate-y-1 shadow-xl shadow-primary-900/20;
+    @apply transform -translate-y-1 shadow-xl shadow-blood-900/20;
   }
 
   .card::before {
     content: '';
-    @apply absolute inset-0 bg-gradient-to-br from-primary-500/5 to-transparent opacity-0 transition-opacity duration-300;
+    @apply absolute inset-0 bg-gradient-to-br from-blood-500/5 to-transparent opacity-0 transition-opacity duration-300;
   }
 
   .card:hover::before {
@@ -40,11 +69,11 @@
   }
 
   body {
-    @apply bg-dark-900 text-dark-100 font-sans leading-relaxed;
+    @apply bg-void-900 text-void-text-100 font-sans leading-relaxed;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display font-bold tracking-tight text-dark-50;
+    @apply font-display font-bold tracking-tight text-void-text-50;
   }
 
   h1 {
@@ -59,11 +88,11 @@
   }
 
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-secondary-500;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-blood-400 to-abyss-500;
   }
 
   .glass {
-    @apply bg-dark-800/50 backdrop-blur-lg border border-dark-700/50;
+    @apply bg-void-800/50 backdrop-blur-lg border border-void-700/50;
   }
 
   .btn {
@@ -71,11 +100,11 @@
   }
 
   .btn-primary {
-    @apply bg-gradient-to-r from-primary-500 to-secondary-600 text-white hover:shadow-lg hover:shadow-primary-500/20 hover:-translate-y-0.5;
+    @apply bg-gradient-to-r from-blood-500 to-abyss-600 text-void-text-100 hover:shadow-lg hover:shadow-blood-500/20 hover:-translate-y-0.5;
   }
 
   .btn-outline {
-    @apply border-2 border-dark-700 text-dark-100 hover:border-primary-500 hover:text-primary-400;
+    @apply border-2 border-void-700 text-void-text-100 hover:border-blood-500 hover:text-blood-400;
   }
 
   .section {
@@ -113,10 +142,10 @@
   }
 
   ::-webkit-scrollbar-track {
-    @apply bg-dark-800;
+    @apply bg-void-800;
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-dark-700 rounded-full hover:bg-dark-600;
+    @apply bg-void-700 rounded-full hover:bg-void-600;
   }
 }

@@ -1,0 +1,213 @@
+/* Psychological horror effects - Minimal but creepy */
+
+/* Flickering text effect - Silent Hill inspired */
+@keyframes horrorFlicker {
+  0%, 100% { opacity: 1; }
+  10% { opacity: 0.8; }
+  20% { opacity: 1; }
+  30% { opacity: 0.7; }
+  40% { opacity: 1; }
+  50% { opacity: 0.9; }
+  60% { opacity: 1; }
+  70% { opacity: 0.8; }
+  80% { opacity: 1; }
+  90% { opacity: 0.7; }
+}
+
+/* Breathing shadow effect - Psychological tension */
+@keyframes breatheShadow {
+  0%, 100% { box-shadow: 0 0 15px rgba(239, 83, 80, 0.2); }
+  50% { box-shadow: 0 0 25px rgba(239, 83, 80, 0.4); }
+}
+
+/* Subtle glitch effect - Junji Ito inspired - DESACTIVADO para evitar descentramiento */
+@keyframes subtleGlitch {
+  0%, 100% { transform: translateX(0); }
+  10% { transform: translateX(0); }
+  20% { transform: translateX(0); }
+  30% { transform: translateX(0); }
+  40% { transform: translateX(0); }
+}
+
+/* Static noise overlay - Horror atmosphere */
+@keyframes staticNoise {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+
+/* Pulse effect for horror elements - DESACTIVADO para evitar descentramiento */
+@keyframes horrorPulse {
+  0%, 100% { opacity: 0.1; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(1); }
+}
+
+/* Analog TV distortion effect */
+@keyframes analogDistortion {
+  0%, 100% { filter: hue-rotate(0deg) brightness(1); }
+  25% { filter: hue-rotate(90deg) brightness(1.1); }
+  50% { filter: hue-rotate(180deg) brightness(0.9); }
+  75% { filter: hue-rotate(270deg) brightness(1.05); }
+}
+
+/* Creepy text reveal effect */
+@keyframes creepyReveal {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Blood drip effect */
+@keyframes bloodDrip {
+  0% { transform: translateY(-100%); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+
+/* Text glitch effect for headers */
+.glitch-text {
+  position: relative;
+  color: #ef5350;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch-text::before {
+  animation: subtleGlitch 2s infinite;
+  color: #ef5350;
+  z-index: -1;
+  opacity: 0.6;
+}
+
+.glitch-text::after {
+  animation: subtleGlitch 2s infinite reverse;
+  color: #463656;
+  z-index: -2;
+  opacity: 0.4;
+}
+
+/* Creepy hover effects */
+.horror-hover {
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.horror-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(239, 83, 80, 0.3);
+  filter: brightness(1.1);
+}
+
+/* Horror button styles */
+.horror-button {
+  background: linear-gradient(135deg, rgba(239, 83, 80, 0.2), rgba(70, 54, 86, 0.2));
+  border: 1px solid rgba(239, 83, 80, 0.4);
+  color: #f8f9fa;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  font-family: 'Courier New', monospace;
+}
+
+.horror-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(239, 83, 80, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.horror-button:hover::before {
+  left: 100%;
+}
+
+.horror-button:hover {
+  border-color: rgba(239, 83, 80, 0.6);
+  box-shadow: 0 0 20px rgba(239, 83, 80, 0.3);
+  transform: translateY(-1px);
+}
+
+/* Utility classes for easy application */
+.animate-horror-flicker { animation: horrorFlicker 3s infinite; }
+.animate-breathe-shadow { animation: breatheShadow 4s infinite ease-in-out; }
+.animate-subtle-glitch { animation: subtleGlitch 2s infinite; }
+.animate-horror-pulse { animation: horrorPulse 3s infinite ease-in-out; }
+.animate-analog-distortion { animation: analogDistortion 8s infinite linear; }
+.animate-creepy-reveal { animation: creepyReveal 1s ease-out; }
+.animate-blood-drip { animation: bloodDrip 10s infinite linear; }
+
+/* Global horror effects */
+body {
+  background-attachment: fixed;
+}
+
+/* Scrollbar horror styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #ef5350, #463656);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #ef5350, #8b5cf6);
+}
+
+/* Selection horror styling */
+::selection {
+  background: rgba(239, 83, 80, 0.3);
+  color: #f8f9fa;
+}
+
+::-moz-selection {
+  background: rgba(239, 83, 80, 0.3);
+  color: #f8f9fa;
+}
+
+/* Additional horror effects */
+.horror-button {
+  letter-spacing: 1px;
+}
+
+.horror-button:hover {
+  border-color: #ef5350;
+  box-shadow: 0 0 20px rgba(239, 83, 80, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Utility classes for performance */
+.animate-horror-flicker {
+  animation: horrorFlicker 3s infinite;
+}
+
+.animate-breathe-shadow {
+  animation: breatheShadow 4s infinite ease-in-out;
+}
+
+.animate-subtle-glitch {
+  animation: subtleGlitch 2s infinite;
+}
+
+.animate-horror-pulse {
+  animation: horrorPulse 3s infinite ease-in-out;
+}

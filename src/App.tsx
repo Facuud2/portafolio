@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { ThemeProvider, useTheme } from './contexts/ThemeContext';
 import { LanguageProvider } from './contexts/LanguageContext';
-import MusicPlayer from './components/MusicPlayer';
+import { CyberpunkBackground } from './components/CyberpunkBackground';
 import { Hero } from './components/Hero';
 import { Navbar } from './components/Navbar';
 import About from './components/About';
@@ -28,7 +28,8 @@ function App() {
     <ThemeProvider>
       <LanguageProvider>
         <ThemeWrapper>
-          <div className="min-h-screen bg-white dark:bg-slate-900 text-gray-900 dark:text-gray-100 transition-colors duration-200">
+          <div className="min-h-screen bg-void-950 text-void-100 transition-colors duration-500">
+            <CyberpunkBackground />
             <Navbar />
             <main>
               <Hero />
@@ -37,7 +38,6 @@ function App() {
               <Projects />
               <Contact />
             </main>
-            <MusicPlayer />
           </div>
         </ThemeWrapper>
       </LanguageProvider>

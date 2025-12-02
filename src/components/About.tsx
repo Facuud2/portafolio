@@ -87,8 +87,12 @@ export const About = () => {
                 </div>
                 
                 <div className="text-center text-void-text-100 relative z-10">
-                  <div className="w-32 h-32 mx-auto mb-4 rounded-full bg-blood-900/40 backdrop-blur-sm flex items-center justify-center border border-blood-800/60 animate-breathe-shadow">
-                  <span className="text-4xl font-bold text-blood-400">MA</span>
+                  <div className="w-32 h-32 mx-auto mb-4 rounded-full bg-blood-900/40 backdrop-blur-sm flex items-center justify-center border border-blood-800/60 animate-breathe-shadow overflow-hidden">
+                    <img 
+                      src="/foto_profesional.jpeg" 
+                      alt="Maia Avalos" 
+                      className="w-full h-full object-cover rounded-full"
+                    />
                   </div>
                   <p className="text-xl font-medium text-void-text-200 font-mono">Foto Profesional</p>
                   

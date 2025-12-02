@@ -40,10 +40,11 @@ export const Navbar = () => {
         <div className="flex justify-between items-center h-20">
           <a 
             href="#" 
-            className="text-2xl font-bold hover:opacity-80 transition-all duration-300"
+            className="text-2xl font-bold horror-title hover:opacity-80 transition-all duration-300"
             aria-label="Inicio"
           >
-            MAIA
+            <span className="text-void-text-100">MAIA</span>
+            <span className="text-blood-400 font-bold">{' '}AVALOS</span>
           </a>
 
           {/* Desktop Navigation */}
